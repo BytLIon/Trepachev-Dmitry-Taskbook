@@ -5,13 +5,15 @@ def book_number():
     number = int(input("Enter a number: "))
     print("The number is negative: ", number < 0)
     print("The number is even: ", number % 2 == 0)
+    print("The number of digits in the number is equal to ", len(str(number)))
+    print("The number is expanded", str(number)[::-1])
+    print("The sum of the digits of the number is equal to", sum([int(i) for i in str(number)]))
+
     first_digit, last_digit = int(str(number)[0]), int(str(number)[-1])
     print("The first digit of the number: ", first_digit)
     print("The last digit of the number: ", last_digit)
     print("The sum of the first and last digits of the number: ", first_digit + last_digit)
-    print("The number of digits in the number is equal to ", len(str(number)))
-    print("The number is expanded", str(number)[::-1])
-    print("The sum of the digits of the number is equal to", sum([int(i) for i in str(number)]) )
+
 
 
 def book_number_2():
@@ -27,10 +29,14 @@ def book_line():
     print("Line length:", len(line))
     print("The first three characters of the string:", line[:3])
     print("The last three characters of the string:", line[-3:])
+    print("Characters of a string with even indexes:", line[::2])
+    print("The line is inverted:", line[::-1])
+    print("The index of the first zero in the row is", line.find('0'))
+    print("A string without duplicated characters:", ''.join(set(line)))
     if line[-1] != 'ь':
-        print("The last character of the string: ", line[-1])
+        print("The last character of the string:", line[-1])
     elif len(line) > 1:
-        print("The penultimate character of the string: ", line[-2])
+        print("The penultimate character of the string:", line[-2])
     print(*[i for i in line][::-1])
 
 
@@ -41,12 +47,17 @@ def book_line_2():
 
 
 def book_scroll():
-    scroll = [i for i in range(1, 6)]
+    scroll = [i for i in range(10, 1000)]
     print(scroll[:3])
     print(scroll[2:-1])
     print(scroll[-2:])
     print(scroll[::2])
     print([i * 1.1 for i in scroll])
+    print("Numbers with the sum of the first and second digits equal to five:", *[i for i in scroll if int(str(i)[0]) + int(str(i)[1]) == 5])
+    del_symbol = int(input("Enter a character, it will be deleted:"))
+    print([i for i in scroll if i != del_symbol])
+    scroll = ['http://Putin.ru', 'http://lider.com', 'bole.ru', 'http://country.ru', 'Russia.org']
+    print([i for i in scroll if i[:7] == "http://"])
     line_scroll = input("Enter the line: ")
     print(list(line_scroll))
     number_scroll = input("Enter the number: ")
@@ -60,6 +71,9 @@ def book_glossary():
     glossary = {'a': 1, 'b': 2, 'c': 3, 'd': 4,}
     print("The sum of the elements of this dictionary is equal to", sum(glossary.values()))
     print("The sum of the squares of the elements of this dictionary is equal to", sum([i ** 2 for i in glossary.values()]))
+    for key, value in glossary.items():
+        glossary[key] = value * 2
+    print(glossary)
 
 
 
@@ -123,4 +137,4 @@ if __name__ == '__main__':
         book_total() # working with the results
     if key == 10:
         book_spam() # dealing with spam
-    #1/9/stop
+    #2_2_1_https://code.mu/ru/python/tasker/stager/2/2/
